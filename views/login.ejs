@@ -1,0 +1,22 @@
+<% include ./partials/header.ejs  %>
+  <link rel='stylesheet' href='/stylesheets/login.css' />
+</head>
+<body>
+  <div class="login-container bg-zinc-600">
+    <form class="login-form" action="/login" method="post">
+      <h1> LOG IN </h1>
+      <% if(error.length > 0){ %>
+      <h1 class="error"> <%= error[0] %> </h1>
+      <% } %>
+      
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      
+      <label for="password ">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+    <a href="/">DON'T HAVE ACCCOUNT ! REGISTER</a>
+  </div>
+<% include ./partials/footer.ejs  %>

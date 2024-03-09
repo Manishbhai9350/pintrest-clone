@@ -1,0 +1,19 @@
+{
+	"version": 2,
+	"builds": [
+		{
+			"src": "./bin/www", // Adjust the entry point to your Express app
+			"use": "@now/node-server"
+		}
+	],
+	"routes": [
+		{
+			"src": "/(.*)",
+			"dest": "./bin/www" // Adjust to your entry point file
+		}
+	],
+	"env": {
+		"NODE_ENV": "production"
+		// Add other environment variables specific to your app
+	}
+}

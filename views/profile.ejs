@@ -1,0 +1,56 @@
+<% include ./partials/header.ejs  %>
+  <link rel="stylesheet" href="stylesheets/profile.css">
+</head>
+
+<body>
+    <div id="main">
+      <div class="profile">
+        <div class="top">
+        <div class="lft">
+        <div class="  img">
+          <img src="" alt="">
+        </div>
+        <div class="usrname">
+          <h3><%= user.fullname %></h3>
+        </div>
+        </div>
+        <div class="rgt">
+          <h3>@<%= user.username %></h3>
+          <h4>keep going</h4>
+          <h4>frontend developer</h4>
+        </div>
+        </div>
+        <div class="bottom">
+          <a href="/logout" class="edt-btn">LOG OUT </a>
+        </div>
+        <form action="/upload" method="post" enctype="multipart/form-data" class='upload'>
+              
+                <input type="text" class="postText" name="postText" placeholder="enter caption">
+                <input type="file" id="file-input" name="file"/>
+      <label id='file-label'  for="file-input">
+        <i class="fa-solid     fa-arrow-up-from-bracket"></i>
+        &nbsp; Choose Files
+      </label>
+                <button class="btn" type="submit" > UPLOAD </button>
+        </form>
+      </div>
+      <div class="posts">
+        <div class="posts-main">
+        <div class="heading">
+          <h2>POSTS</h2>
+        </div>
+        <div class="con">
+        <% user.posts.forEach(post => {  %>
+          <div class="post">
+            <img src="/images/uploads/<%= post.post%>" alt="">
+            <div class="post-desc">
+              <h3><%= post.postText %> </h3>
+            </div>
+          </div>
+          <% })  %>
+        </div>
+      </div>
+      </div>
+    </div>
+    <script src="./javascripts/profile.js"></script>
+<%  include ./partials/footer.ejs %>
